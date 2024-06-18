@@ -1,0 +1,17 @@
+declare
+ cursor c1 is select ino,iname,iamt from invest1 order by idate; 
+ t1 c1%rowtype;
+begin
+ open c1;
+ loop
+  fetch c1 into t1;
+  exit when c1%notfound;
+  dbms_output.put_line(t1.ino||' '||t1.iname||' '||t1.iamt);
+  end loop;
+ close c1;
+end;
+/
+
+
+
+select * from invest1;

@@ -1,0 +1,33 @@
+create table college1(code int primary key,
+co_name varchar2(20),address varchar2(20));
+
+insert into college1 values(101,'CDJ','shrirampur');
+insert into college1 values(102,'RBNB','shrirampur');
+insert into college1 values(103,'D.Y.patil','pune');
+
+create table tech(t_id int,
+t_name varchar2(20),
+quali varchar2(20),
+spec varchar2(20),
+salary float,
+tdesg varchar2(20),
+code int references college1);
+
+insert into tech values(1,'om','BBA','c-lang',14000.00,'a',101);
+insert into tech values(2,'omkar','BBA(ca)','java',17000.00,'b',102);
+insert into tech values(3,'maya','BCS','RDBMS',19000.00,'a',103);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

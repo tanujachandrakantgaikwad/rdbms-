@@ -1,0 +1,12 @@
+create or replace trigger n1
+before insert or update on item_supp
+for each row
+
+Begin
+ if(:new.rate<=0)then
+ raise_application_error(-20081,'rate or quantity less than zero not allowed');
+end if;
+end;
+/
+
+insert into item_supp values(107,5,-19,91);

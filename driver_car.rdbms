@@ -1,0 +1,27 @@
+create table driver1(d_id int primary key,
+dname varchar2(20),
+address varchar2(20));
+
+insert into driver1 values(1,'om','pune');
+insert into driver1 values(2,'tanmay','belapur');
+insert into driver1 values(3,'tanu','mumbai');
+insert into driver1 values(4,'omkar','wadala');
+
+create table car1(cno int primary key,
+model varchar2(20),
+year int);
+insert into car1 values(101,'tata harrier',2008);
+insert into car1 values(102,'swift',2023);
+insert into car1 values(103,'tata punch',2005);
+insert into car1 values(104,'swift',2012);
+
+create table DC(dcdate date,
+ time int,
+d_id int references driver1,
+cno int references car1);
+
+insert into DC values('1-jan-2011',2.18,1,101);
+insert into DC values('15-may-2009',6.2,2,102);
+insert into DC values('1-nov-2005',3.45,3,103);
+insert into DC values('30-dec-2005',8.1,1,104);
+insert into DC values('9-june-2019',12.23,3,102);

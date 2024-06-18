@@ -1,0 +1,19 @@
+create or replace procedure num(v_no_player int) 
+AS
+ v_gname varchar2(20);
+ v_cname varchar2(20);
+begin
+ select gname,cname into v_gname,v_cname from game1 where v_no_player>5;
+end;
+/
+
+
+declare
+ v_gname varchar2(10);
+ v_cname varchar2(20);
+ v_no_player int;
+begin
+   v_no_player:=:v_no_player;
+  num(v_gname,v_cname,v_no_player);
+     dbms_output.put_line(v_gname||' '||v_cname);
+ end;

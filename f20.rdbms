@@ -1,0 +1,12 @@
+create or replace procedure details_car(v_dcdate IN date)
+AS
+v_cno int;
+ v_model varchar2(20);
+ v_year int;
+ begin
+ select cno,model,year into v_cno,v_model,v_year from car1,driver1,DC
+ where car1.cno=DC.cno AND driver1.d_id=DC.d_id
+ AND v_dcdate='1-nov-2005';
+end;
+/
+select * from DC

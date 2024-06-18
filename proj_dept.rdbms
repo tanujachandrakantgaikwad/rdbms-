@@ -1,0 +1,14 @@
+create table dept1(dno int primary key,dname varchar2(20),HOD varchar2(20),loc varchar2(20));
+insert into dept1 values(1,'computer','om','pune');
+insert into dept1 values(2,'science','omkar','nashik');
+insert into dept1 values(3,'art','sai','mumbai');
+
+
+select * from dept1
+create table proj1(pno int,pname varchar2(20),start_date date,budget int,status varchar2(20),dno int references dept1);
+insert into proj1 values(101,'science p','1-jan-2023',20000,'c',1);
+insert into proj1 values(102,'JAVA p','1-may-2023',20000,'c',1);
+insert into proj1 values(103,'DBMS','12-jan-2021',20000,'c',1);
+insert into proj1 values(104,'art p','21-nov-2022',20000,'c',1);
+insert into proj1 values(101,'science p','1-jan-2023',20000,'p',2);
+insert into proj1 values(101,'commere p','19-jan-2023',20900,'p',3);

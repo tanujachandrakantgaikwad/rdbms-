@@ -1,0 +1,11 @@
+create or replace trigger k1
+before insert or update on game1
+for each row
+begin
+ if(:new.n_of_player<=0)then
+  raise_application_error(-29564,'number must be greater han zero');
+ end if;
+end;
+/
+select * from game1
+insert into game1 values('kho',-300,'tanuja');

@@ -1,0 +1,11 @@
+create or replace function total_no(v_w_name varchar2)
+return number
+IS
+ t_quantity number;
+begin
+ select count(*) into t_quantity from product1,wholesaler1,WP
+ where wholesaler1.w_no=WP.w_no and product1.product_no=WP.product_no and
+ where w_name=v_w_name;
+ return t_quantity;
+end;
+/

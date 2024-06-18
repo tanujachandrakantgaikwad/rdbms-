@@ -1,0 +1,11 @@
+create or replace trigger x1
+before insert or update on CP
+for each row
+begin
+ if(:new.no_of_share<0)then
+  raise_application_error(-20765,'number of share should be not zero');
+ end if;
+end;
+/
+select * from cp
+insert into CP values(-700,'tata com','om');

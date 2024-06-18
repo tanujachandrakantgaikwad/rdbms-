@@ -1,0 +1,10 @@
+create or replace trigger y1
+before insert or update on product1
+for each row
+begin
+ if(:new.rate<=0)then
+   raise_application_error(-20234,'rate must be geater than zero');
+ end if;
+end;
+/
+insert into product1 values(6,'pen',-987);

@@ -1,0 +1,12 @@
+create or replace procedure disp_datails(v_tname IN varchar2)
+IS
+v_code int;
+v_cname varchar2(20);
+v_address varchar2(20);
+Begin
+ select code,cname,address into v_code,v_cname,v_address from college1,tech
+ where college1.code=tech.code
+ and t_name=v_tname;
+ 
+end;
+/

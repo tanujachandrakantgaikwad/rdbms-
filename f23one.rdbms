@@ -1,0 +1,16 @@
+declare
+ cursor c1 is select product1.* from wholesaler1,product1,WP 
+  where wholesaler1.w_no=WP.w_no 
+  AND product1.product_no=WP.product_no
+  order by w_name;
+  u1 c1%rowtype;
+begin
+ open c1;
+  loop
+  fetch c1 into u1;
+  exit when c1%notfound;
+   dbms_output.put_line(u1.product_no||' ' ||u1.product_name||' '||u1.rate);
+ end loop;
+ close c1;
+end;
+/

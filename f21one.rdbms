@@ -1,0 +1,109 @@
+declare
+ cursor c1 is select tech.* from college1,tech
+ where college1.code=tech.code
+ order by co_name;
+ t1 c1%rowtype;
+begin
+ open c1;
+  loop
+  fetch c1 into t1;
+   exit when c1%notfound;
+    dbms_output.put_line(t1.t_id||' '||t1.t_name||' '||t1.quali||' '||t1.spec||' '||t1.salary||' '||t1.tdesg);
+  end loop;
+ close c1;
+end;
+/
+
+
+select * from college1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

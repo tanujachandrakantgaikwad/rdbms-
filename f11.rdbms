@@ -1,0 +1,21 @@
+create or replace function total_s(v_lname varchar)
+return int
+AS
+ v_total int;
+begin
+ select count(*)into v_total from lab,stud2
+ where lname=v_lname And lab.lno=stud2.lno;
+  
+ return v_total;
+end total_s;
+/
+declare
+ v_lname varchar2(20);
+ v_total int;
+begin 
+ v_lname:=:v_lname;
+ v_total:=total_s(v_lname);
+   dbms_output.put_line(v_total);
+ end;
+/
+select * from stud2

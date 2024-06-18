@@ -1,0 +1,30 @@
+create or replace function total_mamt(v_name client.client_name%type)
+return int
+AS
+ v_total int;
+begin
+ select sum(maturity_amt)into v_total from client,policy,cp_info
+ where client_name=v_name AND
+ client.client_no=cp_info.client_no AND
+ policy.policy_no=cp_info.policy_no;
+ 
+   return v_total;
+ end total_mamt;
+/
+
+declare
+  v_name client.client_name%type;
+  v_total int;
+begin
+ v_name:=:v_name;
+ v_total:=total_mamt(v_name);
+   if v_total<>0 then
+    dbms_output.put_line('total maturity amount is'||v_total);
+  else
+     dbms_output.put_line('record not found');
+  end if;
+end;
+
+select * from client;
+select * from policy;
+select * from cp_info;

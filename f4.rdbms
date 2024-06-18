@@ -1,0 +1,435 @@
+create table emp1(emp_id int primary key,
+emp_name varchar2(20),
+address varchar2(20));
+insert into emp1 values(2,'om','mumbai');
+*************************************************
+create or replace trigger t1
+before insert or update on emp1
+for each row
+begin
+ if(:new.emp_id<=0)then
+  raise_application_error(-20034,'less than zero values not allower');
+end if;
+end;
+insert into emp1 values(-20,'sai','pune');
+**********************************************
+create table invest1(inv_no int,
+inv_name varchar2(20),
+inv_date date,
+inv_amount int);
+
+insert into invest1 values(21,'share market','1-jan-2021',1800);
+
+create or replace trigger M1
+before insert or update on invest1
+for each row
+begin
+ if(:new.inv_amount<10000)then
+  raise_application_error(-20000,17000);
+ end if;
+end;
+insert into invest1 values(13,'land','7-may-1010',8000);
+*******************************************************
+
+create or replace trigger m1
+before insert or update on invest1
+for each row
+begin
+  if(:new.inv_date>2020)then
+    raise_application_error(-20019,'only current year allowed');
+  end if;
+end;
+ /
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+create table emp1(emp_id int primary key,
+emp_name varchar2(20),
+address varchar2(20));
+insert into emp1 values(2,'om','mumbai');
+*************************************************
+create or replace trigger t1
+before insert or update on emp1
+for each row
+begin
+ if(:new.emp_id<=0)then
+  raise_application_error(-20034,'less than zero values not allower');
+end if;
+end;
+insert into emp1 values(-20,'sai','pune');
+**********************************************
+create table invest1(inv_no int,
+inv_name varchar2(20),
+inv_date date,
+inv_amount int);
+
+insert into invest1 values(21,'share market','1-jan-2021',1800);
+
+create or replace trigger M1
+before insert or update on invest1
+for each row
+begin
+ if(:new.inv_amount<10000)then
+  raise_application_error(-20000,17000);
+ end if;
+end;
+insert into invest1 values(13,'land','7-may-1010',8000);
+*******************************************************
+
+create or replace trigger m1
+before insert or update on invest1
+for each row
+begin
+  if(:new.inv_date>2020)then
+    raise_application_error(-20019,'only current year allowed');
+  end if;
+end;
+ /
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+create table emp1(emp_id int primary key,
+emp_name varchar2(20),
+address varchar2(20));
+insert into emp1 values(2,'om','mumbai');
+*************************************************
+create or replace trigger t1
+before insert or update on emp1
+for each row
+begin
+ if(:new.emp_id<=0)then
+  raise_application_error(-20034,'less than zero values not allower');
+end if;
+end;
+insert into emp1 values(-20,'sai','pune');
+**********************************************
+create table invest1(inv_no int,
+inv_name varchar2(20),
+inv_date date,
+inv_amount int);
+
+insert into invest1 values(21,'share market','1-jan-2021',1800);
+
+create or replace trigger M1
+before insert or update on invest1
+for each row
+begin
+ if(:new.inv_amount<10000)then
+  raise_application_error(-20000,17000);
+ end if;
+end;
+insert into invest1 values(13,'land','7-may-1010',8000);
+*******************************************************
+
+create or replace trigger m1
+before insert or update on invest1
+for each row
+begin
+  if(:new.inv_date>2020)then
+    raise_application_error(-20019,'only current year allowed');
+  end if;
+end;
+ /
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+create table emp1(emp_id int primary key,
+emp_name varchar2(20),
+address varchar2(20));
+insert into emp1 values(2,'om','mumbai');
+*************************************************
+create or replace trigger t1
+before insert or update on emp1
+for each row
+begin
+ if(:new.emp_id<=0)then
+  raise_application_error(-20034,'less than zero values not allower');
+end if;
+end;
+insert into emp1 values(-20,'sai','pune');
+**********************************************
+create table invest1(inv_no int,
+inv_name varchar2(20),
+inv_date date,
+inv_amount int);
+
+insert into invest1 values(21,'share market','1-jan-2021',1800);
+
+create or replace trigger M1
+before insert or update on invest1
+for each row
+begin
+ if(:new.inv_amount<10000)then
+  raise_application_error(-20000,17000);
+ end if;
+end;
+insert into invest1 values(13,'land','7-may-1010',8000);
+*******************************************************
+
+create or replace trigger m1
+before insert or update on invest1
+for each row
+begin
+  if(:new.inv_date>2020)then
+    raise_application_error(-20019,'only current year allowed');
+  end if;
+end;
+ /
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+create table emp1(emp_id int primary key,
+emp_name varchar2(20),
+address varchar2(20));
+insert into emp1 values(2,'om','mumbai');
+*************************************************
+create or replace trigger t1
+before insert or update on emp1
+for each row
+begin
+ if(:new.emp_id<=0)then
+  raise_application_error(-20034,'less than zero values not allower');
+end if;
+end;
+insert into emp1 values(-20,'sai','pune');
+**********************************************
+create table invest1(inv_no int,
+inv_name varchar2(20),
+inv_date date,
+inv_amount int);
+
+insert into invest1 values(21,'share market','1-jan-2021',1800);
+
+create or replace trigger M1
+before insert or update on invest1
+for each row
+begin
+ if(:new.inv_amount<10000)then
+  raise_application_error(-20000,17000);
+ end if;
+end;
+insert into invest1 values(13,'land','7-may-1010',8000);
+*******************************************************
+
+create or replace trigger m1
+before insert or update on invest1
+for each row
+begin
+  if(:new.inv_date>2020)then
+    raise_application_error(-20019,'only current year allowed');
+  end if;
+end;
+ /
+
+
+create table emp1(emp_id int primary key,
+emp_name varchar2(20),
+address varchar2(20));
+insert into emp1 values(2,'om','mumbai');
+*************************************************
+create or replace trigger t1
+before insert or update on emp1
+for each row
+begin
+ if(:new.emp_id<=0)then
+  raise_application_error(-20034,'less than zero values not allower');
+end if;
+end;
+insert into emp1 values(-20,'sai','pune');
+**********************************************
+create table invest1(inv_no int,
+inv_name varchar2(20),
+inv_date date,
+inv_amount int);
+
+insert into invest1 values(21,'share market','1-jan-2021',1800);
+
+create or replace trigger M1
+before insert or update on invest1
+for each row
+begin
+ if(:new.inv_amount<10000)then
+  raise_application_error(-20000,17000);
+ end if;
+end;
+insert into invest1 values(13,'land','7-may-1010',8000);
+*******************************************************
+
+create or replace trigger m1
+before insert or update on invest1
+for each row
+begin
+  if(:new.inv_date>2020)then
+    raise_application_error(-20019,'only current year allowed');
+  end if;
+end;
+ /
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+create table emp1(emp_id int primary key,
+emp_name varchar2(20),
+address varchar2(20));
+insert into emp1 values(2,'om','mumbai');
+*************************************************
+create or replace trigger t1
+before insert or update on emp1
+for each row
+begin
+ if(:new.emp_id<=0)then
+  raise_application_error(-20034,'less than zero values not allower');
+end if;
+end;
+insert into emp1 values(-20,'sai','pune');
+**********************************************
+create table invest1(inv_no int,
+inv_name varchar2(20),
+inv_date date,
+inv_amount int);
+
+insert into invest1 values(21,'share market','1-jan-2021',1800);
+
+create or replace trigger M1
+before insert or update on invest1
+for each row
+begin
+ if(:new.inv_amount<10000)then
+  raise_application_error(-20000,17000);
+ end if;
+end;
+insert into invest1 values(13,'land','7-may-1010',8000);
+*******************************************************
+
+create or replace trigger m1
+before insert or update on invest1
+for each row
+begin
+  if(:new.inv_date>2020)then
+    raise_application_error(-20019,'only current year allowed');
+  end if;
+end;
+ /
+
+
+
+create or replace trigger t1
+before insert or update on emp1
+for each row
+begin
+ if(:new.emp_id<=0)then
+  raise_application_error(-20034,'less than zero values not allower');
+end if;
+end;
+insert into emp1 values(-20,'sai','pune');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

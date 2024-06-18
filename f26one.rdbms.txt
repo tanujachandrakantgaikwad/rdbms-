@@ -1,0 +1,16 @@
+create or replace trigger ma1
+before insert or update on project2
+for each row
+ declare
+  invalid_budget exception;
+begin
+ if(:new.budget<=0)then
+    raise invalid_budget;
+ end if;
+exception
+    when invalid_budget then
+ raise_application_error(-20834,'budget must be greate than zero');
+end;
+/
+select * from project2
+insert into project2 values(109,'pen','15-jan-2012',-98650,'SZ');

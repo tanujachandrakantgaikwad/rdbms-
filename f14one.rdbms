@@ -1,0 +1,10 @@
+create or replace trigger o1
+before insert or update on tech
+for each row
+begin
+ if(:new.salary<=0)then
+   raise_application_error(-20873,'salary must be above zero');
+ end if;
+end;
+/
+insert into tech values(8,'pratik','MCA','PHP',-19000,'d',5);

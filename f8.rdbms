@@ -1,0 +1,22 @@
+create or replace function plan_no
+return int
+AS
+  v_pno int;
+begin
+ select pno into v_pno from plan;
+ return v_pno;
+end;
+/
+select * from plan
+declare
+ v_pno int;
+ pname varchar2(20);
+ noocalls varchar2(20);
+ freecalltime varchar2(20);
+ fix_amt int;
+begin
+ v_pno:=:v_pno;
+ plan_no(pname,noocalls,freecalltime,fix_amt);
+ dbms_output.put_line(pname||' '||noocalls||' '||freecalltime||' '||fix_amt);
+ end;
+/

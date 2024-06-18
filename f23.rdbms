@@ -1,0 +1,14 @@
+create or replace procedure w_p(w_name IN varchar)
+As 
+v_product_no int;
+v_product_name varchar2(20);
+v_rate int;
+begin
+ select product_no,product_name,rate into v_product_no,v_product_name,v_rate from wholesaler1,product1,WP
+ where wholesaler1.w_no=WP.w_no AND product1.product_no=WP.product_no
+ AND w_name='om';
+end;
+/
+select * from product1
+select * from wholesaler1
+select * from WP

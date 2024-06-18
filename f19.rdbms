@@ -1,0 +1,24 @@
+create or replace function total_p
+ return varchar2
+AS
+ v_gname varchar2(20);
+begin
+ select count(*) into v_gname from game1,player1,gp
+ where game1.gname=gp.gname and player1.pid=gp.pid
+ and club_name='jaya club';
+
+ return v_gname;
+end;
+/
+declare
+ v_gname varchar2(20);
+ ans int;
+begin
+  v_gname:=:v_gname;
+   ans:=total_p(v_gname);
+   dbms_output.put_line(ans);
+  end;
+/
+select * from game1
+select * from player1
+select * from gp

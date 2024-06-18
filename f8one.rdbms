@@ -1,0 +1,19 @@
+declare 
+  cursor c1 is select plan.* from cust,plan 
+         where plan.pno=cust.pno order by cname;
+  r1 c1%rowtype;
+begin
+ open c1;
+ loop
+ fetch c1 into r1;
+  exit when c1%notfound;
+   dbms_output.put_line(r1.pno||' '||r1.pname||' '||r1.noocalls||' '||r1.freecalltime||' '||r1.fix_amt);
+  end loop;
+  close c1;
+end;
+/
+
+
+
+
+select * from plan

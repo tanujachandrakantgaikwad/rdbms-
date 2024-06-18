@@ -1,0 +1,22 @@
+create or replace function total_per( v_model varchar2)
+return varchar2
+AS
+ v_dname varchar2(20);
+begin
+ select count(*) into v_dname from car1,driver1,DC
+ where car1.cno=DC.cno AND driver1.d_id=DC.d_id
+  AND v_model='swift';
+ return v_dname;
+end;
+/
+select * from car1
+declare
+ v_model varchar2(20);
+ v_dname varchar2(20);
+begin
+     v_model:=:v_model;
+    v_dname:=total_per(v_model);
+  dbms_output.put_line(v_dname);
+ end;
+/
+select * from DC

@@ -1,0 +1,12 @@
+create or replace function dis_total return int
+IS
+ ans int;
+begin
+select count(*)into ans from item,supplier,item_supp
+where item.item_no=item_supp.item_no AND
+supplier.sno=item_supp.sno AND
+item_name='book';
+return ans;
+end;
+select dis_total()from dual;
+select * from item;

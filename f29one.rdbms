@@ -1,0 +1,18 @@
+create or replace trigger mg1
+before insert or update on invest1
+for each row
+declare
+ invalid_iamt exception;
+begin
+ if(:new.iamt<50000)then
+   raise invalid_iamt;
+ end if;
+exception
+ when invalid_iamt then
+ raise_application_error(-20987,'investment amt must be greater than 50000');
+end;
+/
+
+
+insert into invest1 values(6,'share','2-may-2022',48921,2);
+select * from invest1

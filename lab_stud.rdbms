@@ -1,0 +1,25 @@
+create table lab(lno int primary key,
+lname varchar2(20),
+cpapcity int,
+equ varchar2(20));
+
+insert into lab values(1,'computer',20,'book');
+insert into lab values(2,'bba lab',25,'pen');
+insert into lab values(4,'computer',20,'loptop');
+
+
+create table stud2(rno int,
+sname varchar2(20),
+class varchar2(10),
+timetable int,
+lno int references lab);
+
+insert into stud2 values(101,'om','FY',10,1);
+insert into stud2 values(102,'ram','sY',3,1);
+insert into stud2 values(103,'sai','tY',4,2);
+insert into stud2 values(104,'omkar','FY',6,4);
+
+
+
+
+

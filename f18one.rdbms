@@ -1,0 +1,16 @@
+declare
+  cursor c1 is select competition.* from student,competition,SC
+  where student.s_reg_no=SC.s_reg_no and competition.cno=SC.cno
+  order by year;
+ r1 c1%rowtype;
+begin
+  open c1;
+   loop
+   fetch c1 into r1;
+    exit when c1%notfound;
+     dbms_output.put_line(r1.cno||' '||r1.cname||' '||r1.ctype);
+   end loop;
+  close c1;
+end;
+/
+ 

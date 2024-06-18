@@ -1,0 +1,21 @@
+create or replace procedure pro
+AS
+ v_name varchar2(20);
+begin
+ select name into v_name from country,citizen1 where country.cid=citizen1.cid AND mother_toung='marathi' AND cname='india';
+end;
+/
+
+declare
+  mother_toung varchar2(20);
+  cname varchar2(20);
+  v_name varchar2(20);
+begin
+   mother_toung:=:mother_toung;
+  cname:=:cname;
+   pro(mother_toung,cname,v_name);
+  dbms_output.put_line(v_name);
+end;
+/
+select * from country
+select * from citizen

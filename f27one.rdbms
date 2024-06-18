@@ -1,0 +1,16 @@
+create or replace trigger ha1
+before insert or update on cust
+ for each row
+ declare
+   invalid_mobileno exception;
+begin
+ if(:new.mno<10)then
+    raise invalid_mobileno; 
+ end if;
+exception
+  when invalid_mobileno then
+ raise_application_error(-20999,'mno less or geater than zero');
+end;
+/
+insert into cust values(12,'harini',-987,1);
+select * from cust

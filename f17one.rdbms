@@ -1,0 +1,20 @@
+create or replace function total_no(v_pname varchar2)
+return int
+AS
+ v_no_of_share int;
+begin
+ select sum(no_of_share) into v_no_of_share from CP
+ where pname=v_pname;
+ return v_no_of_share;
+end;
+/
+declare
+ v_pname varchar2(20);
+ v_no_of_share int;
+begin
+ v_pname:=:v_pname;
+  v_no_of_share:=total_no(v_pname);
+  dbms_output.put_line(v_no_of_share);
+end;
+/
+select * from CP

@@ -1,0 +1,15 @@
+
+create or replace function dpn(d_name IN varchar2)return varchar2
+AS
+ t_status varchar2(20);
+begin
+
+ select count(*)into t_status from proj1,dept1 
+ where dept1.dno=proj1.dno AND
+ status='p';
+
+return t_status;
+end;
+/
+
+select dpn('p')from dual;

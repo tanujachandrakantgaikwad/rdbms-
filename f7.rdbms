@@ -1,0 +1,10 @@
+create or replace procedure disp_p1(price IN int,day IN varchar2,t_dish_no OUT int,t_dish_desc OUT varchar2)
+IS 
+begin
+ select dish_no,dish_desc into t_dish_no,t_dish_desc from menu,bill,BM
+ where bill.bno=BM.bno 
+ AND menu.dish_no=BM.dish_no
+ AND day='saturday' AND
+  price<=500;
+end;
+/

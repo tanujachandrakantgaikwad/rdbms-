@@ -1,0 +1,13 @@
+declare
+ cursor c1 is select stud2.* from lab,stud2
+  where lab.lno=stud2.lno order by lname;
+ r1 c1%rowtype;
+begin
+ open c1;
+  loop
+   fetch c1 into r1;
+    exit when c1%notfound;
+      dbms_output.put_line(r1.rno||' '||r1.sname||' '||r1.class||' '||r1.timetable);
+   end loop;
+ end;
+/

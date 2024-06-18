@@ -1,0 +1,13 @@
+declare
+ cursor c1 is select pid,pname,address from player1 order by club_name;
+ r1 c1%rowtype;
+begin
+ open c1;
+  loop
+  fetch c1 into r1;
+   exit when c1%notfound;
+    dbms_output.put_line(r1.pid||' '||r1.pname||' '||r1.address);
+  end loop;
+  close c1;
+end;
+/

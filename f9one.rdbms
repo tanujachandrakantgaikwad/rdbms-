@@ -1,0 +1,13 @@
+declare
+ cursor c1 is select proj1.*from dept1,proj1 where dept1.dno=proj1.dno order by status;
+  t1 c1%rowtype;
+begin
+  open c1;
+   loop
+    fetch c1 into t1;
+     exit when c1%notfound;
+      dbms_output.put_line(t1.pno||' '||t1.pname||' '||t1.start_date||' '||t1.budget||' '||t1.status);
+    end loop;
+   close c1;
+end;
+/

@@ -1,0 +1,11 @@
+create or replace function total_com(v_s_reg_no int)
+return int
+AS
+ v_year int;
+begin
+ select count(*) into v_year from student,competition,SC
+ where s_reg_no=v_s_reg_no;
+ return v_year;
+end;
+/
+select * from SC

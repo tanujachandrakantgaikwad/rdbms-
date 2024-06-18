@@ -1,0 +1,11 @@
+
+create or replace trigger city
+before insert on cities1
+for each row
+begin
+ if(:new.pincode>6)then
+ raise_application_error(-20654,'pincode must be less than six digit');
+ end if;
+end;
+/
+insert into cities1 values(1234567,'pune','indian');

@@ -1,0 +1,16 @@
+
+create or replace trigger H1
+before insert or update on menu
+for each row
+ declare
+  invalid_price exception;
+begin
+ if(:new.price<=0)then
+  raise invalid_price;
+ end if;
+exception
+ when invalid_price then
+  raise_application_error(-20454,'price must be greater than zero');
+end;
+/
+insert into menu values(8,'nice',-98);

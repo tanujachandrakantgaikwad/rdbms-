@@ -1,0 +1,23 @@
+create table country(cid int primary key,
+cname varchar2(20),
+no_of_states varchar2(20),
+area varchar2(20),
+loc varchar2(20),
+popul varchar2(10));
+
+insert into country values(1,'india','10','good','pune','fifty lack');
+insert into country values(2,'japan','19','nice','mumbai','five lack');
+insert into country values(3,'nepal','15','good','wadala','ten lack');
+
+create table citizen1(id int,
+name varchar2(20),
+mother_toung varchar2(20),
+state_name varchar2(20),
+cid int references country);
+
+insert into citizen1 values(101,'om','marathi','1andhra',1);
+insert into citizen1 values(102,'omkar','hindi','arunachal',2);
+insert into citizen1 values(103,'tanuja','english','assam',3);
+
+
+

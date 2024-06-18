@@ -1,0 +1,12 @@
+create or replace function disp_price(t_pub varchar2)
+return int
+AS
+ t_price int;
+begin
+ select price into t_price from book1 where publication=t_pub;
+return t_price;
+end;
+
+
+select disp_price(100)from dual;
+select * from book1;

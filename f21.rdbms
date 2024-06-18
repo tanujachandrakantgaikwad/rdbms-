@@ -1,0 +1,23 @@
+create or replace function c_m
+return varchar2
+AS
+ v_quali varchar2(20);
+begin 
+ select count(*) into v_quali from tech,college1
+ where college1.code=tech.code
+ and co_name='D.Y.patil';
+ return v_quali;
+end;
+/
+
+declare
+  v_quali varchar2(20);
+  v_co_name varchar2(20);
+begin
+ v_co_name:=:v_co_name;
+ v_quali:=c_m( v_co_name);
+  dbms_output.put_line(v_quali);
+end;
+/
+select * from tech
+select * from college1

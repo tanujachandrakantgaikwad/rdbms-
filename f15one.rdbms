@@ -1,0 +1,15 @@
+create or replace trigger l1
+before insert or update on car1
+for each row
+ declare
+  invalid_year exception;
+begin
+ if(:new.year>sysdate)then
+  raise invalid_year;
+ end if;
+exception
+  when invalid_year then
+ raise_application_error(-20793,'year should be greater than current year');
+end;
+/
+insert into car1 values(6,'tata nexon',2020);

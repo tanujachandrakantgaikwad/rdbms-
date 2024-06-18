@@ -1,0 +1,21 @@
+
+create or replace function charges1(t_id IN int,t_scheme IN varchar2) 
+return int
+AS
+ t_charges int;
+begin
+  select charges into t_charges from gym1,member1 where gym1.gname=member1.gname AND
+  id=t_id;
+ return t_charges;
+end;
+/
+declare 
+ t_cha int;
+t_id int;
+begin
+ t_id:=:t_id;
+charges1(t_id,t_cha);
+  dbms_output.put_line('charges'||t_cha;
+ 
+end;
+/

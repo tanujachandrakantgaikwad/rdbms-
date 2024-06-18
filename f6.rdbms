@@ -1,0 +1,12 @@
+create or replace procedure disp_empinv(t_ino IN varchar2,
+t_eno OUT int,
+t_ename OUT varchar2,
+t_address OUT varchar2)
+is
+begin
+ select eno,ename,address into t_eno,t_ename,t_address from emp1,invest1
+ where emp1.eno=invest1.eno 
+AND ino=t_ino; 
+
+end;
+/

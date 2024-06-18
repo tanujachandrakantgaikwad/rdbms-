@@ -1,0 +1,10 @@
+create or replace trigger c1
+before insert or update on gym1
+for each row
+begin
+ if(:new.charges<1000)then
+  raise_application_error(-20987,'charges must be greater than 1000');
+ end if;
+end;
+/
+insert  into gym1 values('om','belapur','500','free'); 

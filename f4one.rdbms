@@ -1,0 +1,10 @@
+
+create or replace trigger f1
+before insert or update  on policy
+for each row
+begin
+ if(:new.maturity_amt<prem_amt)then
+  raise_application_error(-20458,'maturity amt must greater tham prem amt');
+ end if;
+end;
+/

@@ -1,0 +1,16 @@
+create or replace trigger gm
+before insert or update on book1
+for each row
+ declare 
+  invalid_price exception;
+begin
+ if(:new.price<=0)then
+   raise invalid_price;
+ end if;
+exception
+  when invalid_price then
+  raise_application_error(-20985,'price must be > then 0');
+end;
+/
+insert into book1 values(5,'PHP','sm',-900,'nirali',102);
+select * from book1

@@ -1,0 +1,18 @@
+create or replace procedure disp_cost(cn IN cities1.city%type, ct OUT newspaper1.cost%type)
+AS
+begin
+ select sum(cost)into ct from newspaper1,cities1,NC
+ where newspaper1.name=NC.name AND
+ cities1.pincode=NC.pincode 
+ order by cn;
+
+end;
+
+declare
+ cn varchar2(20);
+ ct int;
+begin
+ cn:=:cn;
+disp_cost(cn,ct);
+  dbms_output.put_line('cost'||ct);
+end;

@@ -1,0 +1,28 @@
+create table game1(gname varchar2(20) primary key,
+n_of_player int,
+cname varchar2(20));
+
+insert into game1 values('kho-kho',101,'om');
+insert into game1 values('badminton',102,'sai');
+insert into game1 values('cricket',103,'omkar');
+
+create table player1(pid int primary key,
+pname varchar2(20),
+address varchar2(20),
+club_name varchar2(20));
+
+insert into player1 values(1,'sai','pune','mata club');
+insert into player1 values(2,'ram','belapur','jay club');
+insert into player1 values(3,'jaya','wadala','maya club');
+
+
+create table GP(gname varchar2(20) references game1,
+pid int references player1);
+
+insert into GP values('kho-kho',1);
+insert into GP values('kho-kho',2);
+insert into GP values('cricket',1);
+insert into GP values('kho-kho',2);
+insert into GP values('badminton',3);
+select * from game1
+

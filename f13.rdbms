@@ -1,0 +1,11 @@
+create or replace function disp_country
+return varchar2
+AS
+ v_cname varchar2(20);
+begin
+ select min(popul) into v_cname from country;
+ return v_cname;
+end;
+/
+select disp_country()from dual;
+select * from country

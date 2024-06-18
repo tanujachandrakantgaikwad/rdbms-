@@ -1,0 +1,21 @@
+
+declare
+ cursor c1 is select book1.* from library1,book1
+ where library1.lno=book1.lno
+ order by lname;
+  r1 c1%rowtype;
+begin 
+  open c1;
+   loop
+    fetch c1 into r1;
+     exit when c1%notfound;
+      dbms_output.put_line(r1.bid||' '||r1.bname||' '||r1.author_name||' '||r1.price||' '||r1.publication);
+   end loop;
+ close c1;
+end;
+ 
+
+
+select * from book1
+select * from library1
+

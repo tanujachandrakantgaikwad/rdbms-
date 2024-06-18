@@ -1,0 +1,31 @@
+create table company(name varchar2(20) primary key,
+address varchar2(20),
+city varchar2(20),
+pno number,
+share_values int);
+
+insert into company values('tata com','pune','wadala',76543221,10000);
+insert into company values('empphasis com','nashik','nashik',6543286476,80000);
+insert into company values('book com','mumbai','mumbai',8721328176,18000);
+
+create table person(pname varchar2(20) primary key,
+pcity varchar2(20));
+
+insert into person values('om','belapur');
+insert into person values('sai','nagpur');
+insert into person values('tanuja','solapur');
+
+create table CP(no_of_share int,
+name varchar2(20) references company,
+pname varchar2(20) references person);
+
+insert into CP values(100,'tata com','om');
+insert into CP values(200,'book com','sai');
+insert into CP values(300,'tata com','om');
+insert into CP values(400,'tata com','tanuja');
+insert into CP values(500,'tata com','om');
+
+
+
+
+
